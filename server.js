@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql2/promise");
@@ -22,7 +23,7 @@ if (!fs.existsSync(uploadsDir)) {
 // ===============================
 // KONEKSI DATABASE
 // ===============================
-const pool = mysql.createPool({
+const db = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
@@ -806,6 +807,9 @@ app.post("/api/admin/students/:id/reset-password", async (req, res) => {
 // ===============================
 // JALANKAN SERVER
 // ===============================
-app.listen(3001, () => {
-  console.log("🚀 Backend jalan di http://localhost:3001");
+
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log("🚀 Backend jalan di port", PORT);
 });
+
