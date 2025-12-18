@@ -24,9 +24,9 @@ if (!fs.existsSync(uploadsDir)) {
 // ===============================
 const db = mysql.createPool({
   host: "localhost",
-  user: "root",
-  password: "",
-  database: "sipuas_db",
+  user: "u474310197_sipuas_user",
+  password: "#P3lit431",
+  database: "u474310197_sipuas_db",
   waitForConnections: true,
   connectionLimit: 10,
 });
