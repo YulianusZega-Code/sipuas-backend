@@ -22,14 +22,13 @@ if (!fs.existsSync(uploadsDir)) {
 // ===============================
 // KONEKSI DATABASE
 // ===============================
-const db = mysql.createPool({
-  host: "localhost",
-  user: "u474310197_sipuas_user",
-  password: "#P3lit431",
-  database: "u474310197_sipuas_db",
-  waitForConnections: true,
-  connectionLimit: 10,
+const pool = mysql.createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
 });
+
 
 // ===============================
 // MULTER CONFIG untuk Upload
